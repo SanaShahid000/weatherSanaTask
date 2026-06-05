@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Almanac — Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-group="clear">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="sky" aria-hidden="true"></div>
+
+  <main class="app">
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand__mark">✦</span>
+        <h1 class="brand__name">Almanac</h1>
+      </div>
+      <p class="brand__tag">A quiet reading of the sky</p>
+    </header>
+
+    <section class="search">
+      <form id="search-form" class="search__form" autocomplete="off">
+        <input
+          id="search-input"
+          class="search__input"
+          type="text"
+          placeholder="Search a city…"
+          aria-label="Search a city"
+        />
+        <button type="button" id="locate-btn" class="search__locate" title="Use my location">◎</button>
+      </form>
+      <ul id="results" class="results" role="listbox" hidden></ul>
+      <div class="units">
+        <button class="units__btn is-active" data-units="metric">°C</button>
+        <button class="units__btn" data-units="imperial">°F</button>
+      </div>
+    </section>
+
+    <section id="state" class="state">
+      <p class="state__hint">Search for a place to begin — or tap ◎ to use your location.</p>
+    </section>
+
+    <section id="report" class="report" hidden>
+      <div class="now">
+        <div class="now__place">
+          <span id="now-city" class="now__city"></span>
+          <span id="now-region" class="now__region"></span>
+        </div>
+        <div class="now__main">
+          <div id="now-icon" class="now__icon"></div>
+          <div class="now__temp-wrap">
+            <span id="now-temp" class="now__temp"></span>
+            <span id="now-label" class="now__cond"></span>
+          </div>
+        </div>
+        <dl class="now__meta">
+          <div><dt>Feels like</dt><dd id="now-feels"></dd></div>
+          <div><dt>Humidity</dt><dd id="now-humidity"></dd></div>
+          <div><dt>Wind</dt><dd id="now-wind"></dd></div>
+        </dl>
+      </div>
+
+      <h2 class="forecast__title">The week ahead</h2>
+      <ol id="forecast" class="forecast"></ol>
+
+      <p class="source">Data source: <span id="source-name">—</span></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
